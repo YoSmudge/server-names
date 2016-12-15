@@ -8,8 +8,8 @@ go:
 
 install:
   - wget -q -O /tmp/glide.tar.gz https://github.com/Masterminds/glide/releases/download/v0.12.3/glide-v0.12.3-linux-amd64.tar.gz
-  - cd /tmp && tar -xvf glide.tar.gz && mv linux-amd64/glide /usr/bin && glide -v
-  - glide install
+  - cd /tmp && tar -xvf glide.tar.gz && linux-amd64/glide -v
+  - /tmp/linux-amd64/glide install
 
 allow_failures:
   - go: tip
