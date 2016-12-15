@@ -24,8 +24,6 @@ func loadWords(source string) (WordList, error) {
 	var words WordList
 
 	for _, fn := range sourceFiles {
-		print(fn)
-		print("\n")
 		f, err := os.Open(path.Join(source, fn))
 		if err != nil {
 			return words, err

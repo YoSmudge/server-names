@@ -1,8 +1,10 @@
-hash: c8a62d4e7b2dd2c2a1d810d267f03ee775f25912dcc7626975043e69e29db079
-updated: 2016-12-13T15:08:38.921830237Z
+hash: 42b0ae463f52ca1ff10168975d03f888835b7db9a8a127ce3dbef0fe08dbfb53
+updated: 2016-12-15T14:36:31.276494126Z
 imports:
 - name: github.com/jteeuwen/go-bindata
   version: bbd0c6e271208dce66d8fda4bc536453cd27fc4a
+- name: github.com/stretchr/testify
+  version: 69483b4bd14f5845b5a1e55bca19e954e827f1d0
 - name: github.com/voxelbrain/goptions
   version: 26cb8b04692384f4dc269de3b5fcf3e2ef78573e
 testImports: []

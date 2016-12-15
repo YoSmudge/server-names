@@ -5,8 +5,11 @@ WORDNET_VERSION=3.1
 DOCKER_RUN=docker run -e GOOS=$(GOOS) -it -v $(shell pwd):/app/src/github.com/YoSmudge/server-names aws-server-names:latest
 
 build: glide words/words.go
-	gofmt -w $(glide novendor -x)
+	gofmt -w $(shell glide novendor -x)
 	go build -o build/server-names
+
+test:
+	go test -v -bench=. -benchtime=10s -benchmem $(shell glide novendor)
 
 glide:
 	glide install
