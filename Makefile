@@ -15,7 +15,7 @@ glide:
 	glide install
 
 words/words.go: build/wordlist-generator words/wordlist.json
-	${GOPATH}/bin/go-bindata -o words/words.go -pkg words -prefix words/ words/wordlist.json
+	${GOPATH}/bin/go-bindata -o words/words.go -nomemcopy -pkg words -prefix words/ words/wordlist.json
 
 build/wordlist-generator: glide
 	go build -o build/wordlist-generator github.com/YoSmudge/server-names/wordlist-generator

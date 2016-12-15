@@ -1,7 +1,6 @@
 package wordlist
 
 import (
-	"sort"
 	"strings"
 )
 
@@ -19,12 +18,11 @@ func (w *WordList) Add(wd Word) {
 }
 
 func (w *WordList) byType(ty string) []*Word {
-	sort.Sort(w)
 	var n []*Word
 	for i, _ := range w.Words {
-		wd := w.Words[i]
+		wd := &w.Words[i]
 		if wd.Type == ty {
-			n = append(n, &wd)
+			n = append(n, wd)
 		}
 	}
 	return n

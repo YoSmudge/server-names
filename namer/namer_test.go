@@ -38,16 +38,16 @@ func TestNameBenchmark(t *testing.T) {
 	memUsageMB := float64(r.AllocedBytesPerOp()) / 1024 / 1024
 	duration := time.Duration(r.NsPerOp())
 
-	if r.AllocedBytesPerOp() > 100*1024*1024 {
-		assert.Fail(t, "Should use less than 100MB memory", fmt.Sprintf("Used %dMB", memUsageMB))
+	if r.AllocedBytesPerOp() > 25*1024*1024 {
+		assert.Fail(t, "Should use less than 25MB memory", fmt.Sprintf("Used %dMB", memUsageMB))
 	}
 
-	if r.AllocsPerOp() > 1200000 {
-		assert.Fail(t, "Should create less than 1200000 allocations", fmt.Sprintf("Used %d allocs", r.AllocsPerOp()))
+	if r.AllocsPerOp() > 160000 {
+		assert.Fail(t, "Should create less than 160000 allocations", fmt.Sprintf("Used %d allocs", r.AllocsPerOp()))
 	}
 
-	if duration.Seconds() > 0.75 {
-		assert.Fail(t, "Should complete in less than 750ms", fmt.Sprintf("Took %f", duration.Seconds()))
+	if duration.Seconds() > 0.2 {
+		assert.Fail(t, "Should complete in less than 200ms", fmt.Sprintf("Took %f", duration.Seconds()))
 	}
 }
 

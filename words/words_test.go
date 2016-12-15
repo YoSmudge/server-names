@@ -26,10 +26,17 @@ func TestWords(t *testing.T) {
 	}
 }
 
-func BenchmarkWords(b *testing.B) {
+var wordsRaw []byte
+
+func BenchmarkWordsLoad(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		raw, _ := Asset("wordlist.json")
+		wordsRaw, _ = Asset("wordlist.json")
+	}
+}
+
+func BenchmarkWordsDecode(b *testing.B) {
+	for i := 0; i < b.N; i++ {
 		var words wordlist.WordList
-		json.Unmarshal(raw, &words)
+		json.Unmarshal(wordsRaw, &words)
 	}
 }

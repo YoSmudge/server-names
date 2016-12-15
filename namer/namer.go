@@ -6,6 +6,7 @@ import (
 	"github.com/YoSmudge/server-names/wordlist"
 	"github.com/YoSmudge/server-names/words"
 	"math/rand"
+	"sort"
 	"strconv"
 	"strings"
 )
@@ -21,6 +22,8 @@ func Name(serverId string) (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("Could not open wordlist from embedded data! %s", err)
 	}
+
+	sort.Sort(&words)
 
 	nouns := words.Nouns()
 	prefixes := append(words.Adjectives(), words.Verbs()...)
