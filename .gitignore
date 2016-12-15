@@ -1,0 +1,5 @@
+/.glide
+/build
+/tmp
+/vendor
+/words/wordlist.json
