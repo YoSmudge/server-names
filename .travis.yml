@@ -11,8 +11,9 @@ install:
   - cd /tmp
   - tar -xvf glide.tar.gz
   - linux-amd64/glide -v
+  - export PATH=${PATH}:/tmp/linux-amd64
   - cd ${TRAVIS_BUILD_DIR}
-  - /tmp/linux-amd64/glide install
+  - glide install
 
 allow_failures:
   - go: tip
