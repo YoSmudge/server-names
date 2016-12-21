@@ -2,9 +2,11 @@ ifndef $(GOOS)
 GOOS=$(shell uname | tr '[:upper:]' '[:lower:]')
 endif
 WORDNET_VERSION=3.1
-DOCKER_RUN=docker run -e GOOS=$(GOOS) -it -v $(shell pwd):/app/src/github.com/YoSmudge/server-names aws-server-names:latest
+DOCKER_RUN=docker run -e GOOS=$(GOOS) -e GITHUB_API_KEY -it -v $(shell pwd):/app/src/github.com/YoSmudge/server-names aws-server-names:latest
 
-build: glide words/words.go
+build: build/server-names
+
+build/server-names: glide words/words.go
 	gofmt -w $(shell glide novendor -x)
 	go build -o build/server-names
 
@@ -48,3 +50,13 @@ container-console: container
 
 clean:
 	rm -Rf tmp
+
+release-container: container
+	rm -Rf outputs/
+	$(DOCKER_RUN) make release
+
+release:
+	rm -Rf outputs/ .goxc.local.json
+	goxc
+	@goxc -wlc publish-github -apikey=${GITHUB_API_KEY}
+	goxc

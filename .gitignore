@@ -3,3 +3,5 @@
 /tmp
 /vendor
 /words/wordlist.json
+/.goxc.local.json
+/outputs
