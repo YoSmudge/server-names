@@ -1,10 +1,22 @@
-hash: 42b0ae463f52ca1ff10168975d03f888835b7db9a8a127ce3dbef0fe08dbfb53
-updated: 2016-12-15T14:36:31.276494126Z
+hash: e1aecf428c1dd02af367b8705c8b53392116d76cb051b636af87fbb6edd3e876
+updated: 2017-02-15T14:23:13.967892571Z
 imports:
 - name: github.com/jteeuwen/go-bindata
   version: bbd0c6e271208dce66d8fda4bc536453cd27fc4a
+- name: github.com/spaolacci/murmur3
+  version: 0d12bf811670bf6a1a63828dfbd003eded177fce
 - name: github.com/stretchr/testify
   version: 69483b4bd14f5845b5a1e55bca19e954e827f1d0
+  subpackages:
+  - assert
 - name: github.com/voxelbrain/goptions
   version: 26cb8b04692384f4dc269de3b5fcf3e2ef78573e
-testImports: []
+testImports:
+- name: github.com/davecgh/go-spew
+  version: 04cdfd42973bb9c8589fd6a731800cf222fde1a9
+  subpackages:
+  - spew
+- name: github.com/pmezard/go-difflib
+  version: d8ed2627bdf02c080bf22230dbb337003b7aba2d
+  subpackages:
+  - difflib

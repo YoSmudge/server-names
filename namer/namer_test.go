@@ -8,16 +8,16 @@ import (
 )
 
 var examples map[string]string = map[string]string{
-	"060e8dde9cca5505d": "goosey-sprinkler",
-	"0fad4fb184ed8dbf7": "mothproof-stitch",
-	"009a1487e782619a5": "compatible-excrement",
+	"060e8dde9cca5505d": "impeach-oral",
+	"0fad4fb184ed8dbf7": "directional-clime",
+	"009a1487e782619a5": "lactating-plumeria",
 }
 
 func TestNameExpected(t *testing.T) {
 	for example, expected := range examples {
 		n, err := Name(example)
 		assert.Nil(t, err, "namer returned error")
-		assert.Equal(t, n, expected, "name should match expected")
+		assert.Equal(t, expected, n, "name should match expected")
 	}
 }
 
@@ -30,7 +30,7 @@ func TestNameInstancePrefix(t *testing.T) {
 func TestNameInvalidId(t *testing.T) {
 	n, err := Name("0fad4fb184ed8dbfz")
 	assert.NotNil(t, err, "Should generate error")
-	assert.Equal(t, n, "")
+	assert.Equal(t, "", n)
 }
 
 func TestNameBenchmark(t *testing.T) {

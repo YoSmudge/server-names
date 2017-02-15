@@ -6,3 +6,4 @@
 /.goxc.local.json
 /outputs
 /debian
+/testscript.sh

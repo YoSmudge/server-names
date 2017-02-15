@@ -83,7 +83,7 @@ func wordlistJson() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "wordlist.json", size: 2814665, mode: os.FileMode(420), modTime: time.Unix(1482324689, 0)}
+	info := bindataFileInfo{name: "wordlist.json", size: 2814665, mode: os.FileMode(420), modTime: time.Unix(1487168267, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }

@@ -1,4 +1,4 @@
-ifndef $(GOOS)
+ifndef GOOS
 GOOS=$(shell uname | tr '[:upper:]' '[:lower:]')
 endif
 WORDNET_VERSION=3.1

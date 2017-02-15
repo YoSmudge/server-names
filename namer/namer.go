@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"github.com/YoSmudge/server-names/wordlist"
 	"github.com/YoSmudge/server-names/words"
-	"math/rand"
+	"github.com/spaolacci/murmur3"
 	"sort"
 	"strconv"
 	"strings"
@@ -28,19 +28,20 @@ func Name(serverId string) (string, error) {
 	nouns := words.Nouns()
 	prefixes := append(words.Adjectives(), words.Verbs()...)
 
-	var maxId int64 = int64(len(nouns)) * int64(len(prefixes))
+	var maxId uint64 = uint64(len(nouns)) * uint64(len(prefixes))
 
 	if strings.HasPrefix(serverId, "i-") {
 		serverId = strings.TrimLeft(serverId, "i-")
 	}
 
-	serverIdDecoded, err := strconv.ParseUint(serverId, 16, 64)
+	_, err = strconv.ParseUint(serverId, 16, 64)
 	if err != nil {
 		return "", fmt.Errorf("Could not decode provided server ID to integer", err)
 	}
 
-	r := rand.New(rand.NewSource(int64(serverIdDecoded)))
-	picker := uint64(r.Int63n(maxId))
+	hash := murmur3.Sum64([]byte(serverId))
+
+	picker := hash % maxId
 
 	quo := picker / uint64(len(nouns))
 	mod := picker % uint64(len(nouns))

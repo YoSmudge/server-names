@@ -12,7 +12,7 @@
 		"downloads-page"
 	],
 	"BuildConstraints": "linux,windows,darwin,freebsd",
-	"PackageVersion": "1.0.1",
+	"PackageVersion": "1.1.0",
 	"TaskSettings": {
 		"publish-github": {
 			"owner": "YoSmudge",
