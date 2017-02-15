@@ -1,4 +1,4 @@
-FROM golang:1.7
+FROM golang:1.8
 
 ENV GOPATH=/app
 RUN mkdir -p /app/src/github.com/YoSmudge/server-names &&\
